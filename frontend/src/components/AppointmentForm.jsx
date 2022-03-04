@@ -1,23 +1,27 @@
-import './AppointmentForm.css';
-import { useFormFields } from '../hooks/useFormFields';
-import AppointmentDatePicker from './AppointmentDatePicker';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import "./AppointmentForm.css";
+import { useFormFields } from "../hooks/useFormFields";
+import AppointmentDatePicker from "./AppointmentDatePicker";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function AppointmentForm() {
   // setup initial date val to block passed days
   const [dateValue, setDateValue] = useState();
 
   const [fields, handleFieldChange, setValues] = useFormFields({
-    fullName: '',
-    email: '',
-    date: '',
-    time: ''
+    fullName: "",
+    email: "",
+    date: "",
+    time: "",
   });
 
   useEffect(() => {
     if (dateValue) {
-      const formattedDate = dateValue.toString().split(' ').slice(1, 4).join(' ');
+      const formattedDate = dateValue
+        .toString()
+        .split(" ")
+        .slice(1, 4)
+        .join(" ");
 
       setValues({
         ...fields,
@@ -28,11 +32,10 @@ export default function AppointmentForm() {
 
   function handleSubmit() {
     // axios post request to backend/new
-    console.log(fields);
-    return axios.post("/appointment/new", {fields})
-    .catch(err => {
-      console.log(err.message)
-    })
+    // console.log(fields);
+    return axios.post("/appointment/new", { fields }).catch((err) => {
+      console.log(err.message);
+    });
   }
 
   return (
@@ -42,6 +45,7 @@ export default function AppointmentForm() {
           <span>
             <label>Full Name</label>
             <input
+              required
               value={fields.fullName}
               onChange={handleFieldChange}
               id="fullName"
@@ -53,6 +57,7 @@ export default function AppointmentForm() {
           <span>
             <label>Email</label>
             <input
+              required
               value={fields.email}
               onChange={handleFieldChange}
               id="email"
@@ -63,19 +68,24 @@ export default function AppointmentForm() {
           </span>
         </div>
         <div className="time-info">
-        <label>Date</label>
-          <AppointmentDatePicker
-            dateValue={dateValue}
-            setDateValue={setDateValue}
-          />
-          <label>time</label>
-          <input
-          id="time"
-          type="time"
-          name="time"
-          value={fields.time}
-          onChange={handleFieldChange}
-          />
+          <span>
+            <label>Date</label>
+            <AppointmentDatePicker
+              dateValue={dateValue}
+              setDateValue={setDateValue}
+            />
+          </span>
+          <span>
+            <label>Time</label>
+            <input
+              required
+              id="time"
+              type="time"
+              name="time"
+              value={fields.time}
+              onChange={handleFieldChange}
+            />
+          </span>
           <button id="submit-btn" onClick={handleSubmit}>
             Submit
           </button>

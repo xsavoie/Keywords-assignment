@@ -13,6 +13,8 @@ export default function AppointmentDatePicker(props) {
       id="date"
       selected={dateValue}
       onChange={(date) => setDateValue(date)}
+      minDate={new Date()}
+      placeholderText={"Select a Date"}
     />
   );
 }
