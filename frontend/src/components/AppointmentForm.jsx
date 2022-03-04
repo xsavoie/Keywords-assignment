@@ -38,7 +38,6 @@ export default function AppointmentForm() {
             <label>Full Name</label>
             <input
               value={fields.fullName}
-              // onChange={e => {console.log(e.target.value)}}
               onChange={handleFieldChange}
               id="fullName"
               type="text"
