@@ -2,6 +2,7 @@ import './AppointmentForm.css';
 import { useFormFields } from '../hooks/useFormFields';
 import AppointmentDatePicker from './AppointmentDatePicker';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function AppointmentForm() {
   // setup initial date val to block passed days
@@ -28,6 +29,10 @@ export default function AppointmentForm() {
   function handleSubmit() {
     // axios post request to backend/new
     console.log(fields);
+    return axios.post("/appointment/new", {fields})
+    .catch(err => {
+      console.log(err.message)
+    })
   }
 
   return (
