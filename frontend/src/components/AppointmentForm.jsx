@@ -1,3 +1,5 @@
+import './AppointmentForm.css'
+
 export default function AppointmentForm() {
   function handleSubmit() {
     // axios post request to backend/new
