@@ -1,37 +1,47 @@
 import './AppointmentForm.css'
+import { useFormFields } from '../hooks/useFormFields';
 
 export default function AppointmentForm() {
+
+  const [fields, handleFieldChange] = useFormFields({
+    fullName: '',
+    email: '',
+  })
+
   function handleSubmit() {
     // axios post request to backend/new
-    console.log("submit");
+    console.log(fields)
   }
 
   return (
-    <div class="appointment-form">
+    <div className="appointment-form">
       <form>
-        <div class="user-info">
+        <div className="user-info">
           <span>
-            <label for="name">Full Name</label>
+            <label>Full Name</label>
             <input
-              value={"test"}
-              onChange={"test"}
+              value={fields.fullName}
+              // onChange={e => {console.log(e.target.value)}}
+              onChange={handleFieldChange}
+              id="fullName"
               type="text"
               name="name"
               placeholder="Enter Your Name"
             />
           </span>
           <span>
-            <label for="email">Email</label>
+            <label>Email</label>
             <input
-              value={"test"}
-              onChange={"test"}
+              value={fields.email}
+              onChange={handleFieldChange}
+              id="email"
               type="email"
               name="email"
               placeholder="Enter Your Email"
             />
           </span>
         </div>
-        <div class="time-info">
+        <div className="time-info">
           <h4>datePicker</h4>
           <h4>timePicker</h4>
           <button id="submit-btn" onClick={handleSubmit}>
