@@ -1,6 +1,6 @@
 .appointment-form {
   border: 3px solid black;
-  width: 30%;
+  width: 50%;
   margin: 10px;
   padding: 18px;
 }
@@ -25,10 +25,10 @@
   margin: 4px;
 }
 
-input {
+/* input {
   height: 20px;
   width: 200px;
-}
+} */
 
 .time-info {
   display: flex;
