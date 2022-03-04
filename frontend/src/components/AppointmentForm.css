@@ -5,14 +5,6 @@
   padding: 18px;
 }
 
-/* .user-info {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 4px;
-} */
-
 .user-info {
   display: flex;
   flex-direction: column;
@@ -25,10 +17,10 @@
   margin: 4px;
 }
 
-/* input {
+input {
   height: 20px;
   width: 200px;
-} */
+}
 
 .time-info {
   display: flex;
@@ -45,5 +37,5 @@
   border-radius: 12px;
   width: 100px;
   padding: 10px;
-  margin-left: 30%;
+  margin-left: 20%;
 }

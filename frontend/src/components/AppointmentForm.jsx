@@ -11,6 +11,7 @@ export default function AppointmentForm() {
     fullName: '',
     email: '',
     date: '',
+    time: ''
   });
 
   useEffect(() => {
@@ -64,7 +65,13 @@ export default function AppointmentForm() {
             setDateValue={setDateValue}
           />
           <label>time</label>
-          <h4>timePicker</h4>
+          <input
+          id="time"
+          type="time"
+          name="time"
+          value={fields.time}
+          onChange={handleFieldChange}
+          />
           <button id="submit-btn" onClick={handleSubmit}>
             Submit
           </button>
