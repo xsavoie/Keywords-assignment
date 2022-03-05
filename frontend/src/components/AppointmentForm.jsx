@@ -30,10 +30,14 @@ export default function AppointmentForm() {
     }
   }, [dateValue]);
 
-  function handleSubmit() {
-    // axios post request to backend/new
-    // console.log(fields);
-    return axios.post("/appointment/new", { fields }).catch((err) => {
+  function handleSubmit(event) {
+    event.preventDefault();
+    return axios.post("/appointment/new", { fields })
+    .then((response) => {
+      console.log(response.data)
+      // clear the form
+    })
+    .catch((err) => {
       console.log(err.message);
     });
   }
