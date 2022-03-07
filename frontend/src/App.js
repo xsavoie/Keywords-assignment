@@ -1,5 +1,5 @@
 import './App.css';
-import AppointmentForm from './components/AppointmentForm'
+import AppointmentForm from './components/AppointmentForm/AppointmentForm'
 
 function App() {
   return (

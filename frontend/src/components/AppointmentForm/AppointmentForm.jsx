@@ -1,27 +1,26 @@
-import "./AppointmentForm.css";
-import { useFormFields } from "../hooks/useFormFields";
-import AppointmentDatePicker from "./AppointmentDatePicker";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import './AppointmentForm.css';
+import { useFormFields } from '../../hooks/useFormFields';
+import AppointmentDatePicker from '../AppointmentDatePicker/AppointmentDatePicker';
+import { useEffect, useState } from 'react';
+import SubmitButton from '../SubmitButton/SubmitButton';
 
 export default function AppointmentForm() {
   // setup initial date val to block passed days
   const [dateValue, setDateValue] = useState();
-
   const [fields, handleFieldChange, setValues] = useFormFields({
-    fullName: "",
-    email: "",
-    date: "",
-    time: "",
+    fullName: '',
+    email: '',
+    date: '',
+    time: '',
   });
 
   useEffect(() => {
     if (dateValue) {
       const formattedDate = dateValue
         .toString()
-        .split(" ")
+        .split(' ')
         .slice(1, 4)
-        .join(" ");
+        .join(' ');
 
       setValues({
         ...fields,
@@ -29,18 +28,6 @@ export default function AppointmentForm() {
       });
     }
   }, [dateValue]);
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    return axios.post("/appointment/new", { fields })
-    .then((response) => {
-      console.log(response.data)
-      // clear the form
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-  }
 
   return (
     <div className="appointment-form">
@@ -90,9 +77,7 @@ export default function AppointmentForm() {
               onChange={handleFieldChange}
             />
           </span>
-          <button id="submit-btn" onClick={handleSubmit}>
-            Submit
-          </button>
+          <SubmitButton fields={fields} />
         </div>
       </form>
     </div>

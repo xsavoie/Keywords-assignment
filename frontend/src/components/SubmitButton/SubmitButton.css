@@ -1,0 +1,10 @@
+#submit-btn {
+  background-color: transparent;
+  font-size: 20px;
+  border-radius: 12px;
+  width: 100px;
+  height: 100%;
+  padding: 6px;
+  margin-left: 20%;
+  margin-top: 10px;
+}
