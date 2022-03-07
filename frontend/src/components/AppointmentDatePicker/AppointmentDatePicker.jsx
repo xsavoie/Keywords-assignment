@@ -3,11 +3,9 @@ import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function AppointmentDatePicker(props) {
-  const { dateValue, setDateValue } = props;
+export default function AppointmentDatePicker({ dateValue, setDateValue }) {
   return (
     <DatePicker
-      id="date"
       selected={dateValue}
       onChange={(date) => setDateValue(date)}
       minDate={new Date()}
