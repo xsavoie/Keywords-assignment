@@ -1,8 +1,8 @@
 import axios from 'axios';
 import './SubmitButton.css';
 
-export default function SubmitButton({ fields }) {
-  
+export default function SubmitButton({ fields, resetForm, setDateValue }) {
+
   function handleSubmit(event) {
     event.preventDefault();
     return axios
@@ -10,6 +10,8 @@ export default function SubmitButton({ fields }) {
       .then((response) => {
         console.log(response.data);
         // clear the form
+        resetForm();
+        setDateValue('');
       })
       .catch((err) => {
         console.log(err.message);

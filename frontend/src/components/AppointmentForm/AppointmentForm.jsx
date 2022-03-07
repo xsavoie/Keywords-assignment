@@ -5,9 +5,8 @@ import { useEffect, useState } from 'react';
 import SubmitButton from '../SubmitButton/SubmitButton';
 
 export default function AppointmentForm() {
-  // setup initial date val to block passed days
-  const [dateValue, setDateValue] = useState();
-  const [fields, handleFieldChange, setValues] = useFormFields({
+  const [dateValue, setDateValue] = useState('');
+  const {fields, handleFieldChange, setValues, resetForm} = useFormFields({
     fullName: '',
     email: '',
     date: '',
@@ -36,22 +35,18 @@ export default function AppointmentForm() {
           <span>
             <label>Full Name</label>
             <input
-              required
               value={fields.fullName}
               onChange={handleFieldChange}
-              id="fullName"
               type="text"
-              name="name"
+              name="fullName"
               placeholder="Enter Your Name"
             />
           </span>
           <span>
             <label>Email</label>
             <input
-              required
               value={fields.email}
               onChange={handleFieldChange}
-              id="email"
               type="email"
               name="email"
               placeholder="Enter Your Email"
@@ -60,7 +55,6 @@ export default function AppointmentForm() {
         </div>
         <div className="time-info">
           <span>
-            <label>Date</label>
             <AppointmentDatePicker
               dateValue={dateValue}
               setDateValue={setDateValue}
@@ -69,15 +63,13 @@ export default function AppointmentForm() {
           <span>
             <label>Time</label>
             <input
-              required
-              id="time"
               type="time"
               name="time"
               value={fields.time}
               onChange={handleFieldChange}
             />
           </span>
-          <SubmitButton fields={fields} />
+          <SubmitButton fields={fields} resetForm={resetForm} setDateValue={setDateValue} />
         </div>
       </form>
     </div>
