@@ -1,8 +1,9 @@
 .error-div {
   margin-bottom: -5%;
+  text-align: center;
 }
 
-p {
+.error-message {
   color: red;
   font-weight: 700;
 }

@@ -31,7 +31,7 @@ export default function AppointmentForm() {
   }, [dateValue]);
 
   return (
-    <div className="appointment-form">
+    <div className="appointment-container">
       <form>
         <div className="user-info">
           <label>

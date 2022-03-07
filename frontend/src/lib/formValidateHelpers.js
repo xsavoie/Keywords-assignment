@@ -1,4 +1,4 @@
-export function useFormValidate({ setError }) {
+export function formValidate({ setError }) {
 
   function validateFields(fields) {
     let valid = false
