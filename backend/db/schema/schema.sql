@@ -5,5 +5,6 @@ CREATE TABLE Appointment(
   full_name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   appointment_date VARCHAR(255) NOT NULL,
-  appointment_time VARCHAR(255) NOT NULL
+  appointment_time VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

@@ -19,7 +19,8 @@ appointment.post('/new', (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.send('inserted in db');
+        console.log('inserted in db')
+        res.send(`Thank you, ${fullName}, an appointment was created for ${date} at ${time}`);
       }
     }
   );
