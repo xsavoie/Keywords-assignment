@@ -1,12 +1,12 @@
 import './AppointmentForm.css';
 import { useFormFields } from '../../hooks/useFormFields';
-import AppointmentDatePicker from '../AppointmentDatePicker/AppointmentDatePicker';
+import AppointmentDatePicker from '../AppointmentDatePicker';
 import { useEffect, useState } from 'react';
-import SubmitButton from '../SubmitButton/SubmitButton';
+import SubmitButton from '../SubmitButton';
 
 export default function AppointmentForm() {
   const [dateValue, setDateValue] = useState('');
-  const {fields, handleFieldChange, setValues, resetForm} = useFormFields({
+  const { fields, handleFieldChange, setValues, resetForm } = useFormFields({
     fullName: '',
     email: '',
     date: '',
@@ -32,8 +32,8 @@ export default function AppointmentForm() {
     <div className="appointment-form">
       <form>
         <div className="user-info">
-          <span>
-            <label>Full Name</label>
+          <label>
+            Full Name
             <input
               value={fields.fullName}
               onChange={handleFieldChange}
@@ -41,9 +41,9 @@ export default function AppointmentForm() {
               name="fullName"
               placeholder="Enter Your Name"
             />
-          </span>
-          <span>
-            <label>Email</label>
+          </label>
+          <label>
+            Email
             <input
               value={fields.email}
               onChange={handleFieldChange}
@@ -51,25 +51,32 @@ export default function AppointmentForm() {
               name="email"
               placeholder="Enter Your Email"
             />
-          </span>
+          </label>
         </div>
+
         <div className="time-info">
-          <span>
+          <label>
+            Date
             <AppointmentDatePicker
               dateValue={dateValue}
               setDateValue={setDateValue}
             />
-          </span>
-          <span>
-            <label>Time</label>
+          </label>
+          <label>
+            Time
             <input
               type="time"
               name="time"
               value={fields.time}
               onChange={handleFieldChange}
             />
-          </span>
-          <SubmitButton fields={fields} resetForm={resetForm} setDateValue={setDateValue} />
+          </label>
+
+          <SubmitButton
+            fields={fields}
+            resetForm={resetForm}
+            setDateValue={setDateValue}
+          />
         </div>
       </form>
     </div>

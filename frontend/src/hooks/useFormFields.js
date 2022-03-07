@@ -12,7 +12,7 @@ export function useFormFields(initialState) {
   }
 
   function resetForm() {
-    setValues(initialState)
+    setValues(initialState);
   }
 
   return {
