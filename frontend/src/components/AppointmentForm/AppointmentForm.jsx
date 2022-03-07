@@ -3,10 +3,12 @@ import { useFormFields } from '../../hooks/useFormFields';
 import AppointmentDatePicker from '../AppointmentDatePicker';
 import { useEffect, useState } from 'react';
 import SubmitButton from '../SubmitButton';
+import ErrorMessage from '../ErrorMessage';
 
 export default function AppointmentForm() {
+  const [error, setError] = useState(null);
   const [dateValue, setDateValue] = useState('');
-  const { fields, handleFieldChange, setValues, resetForm } = useFormFields({
+  const { fields, handleFieldChange, setValues, resetFields } = useFormFields({
     fullName: '',
     email: '',
     date: '',
@@ -71,13 +73,14 @@ export default function AppointmentForm() {
               onChange={handleFieldChange}
             />
           </label>
-
           <SubmitButton
             fields={fields}
-            resetForm={resetForm}
+            resetFields={resetFields}
             setDateValue={setDateValue}
+            setError={setError}
           />
         </div>
+        {error && <ErrorMessage error={error} />}
       </form>
     </div>
   );

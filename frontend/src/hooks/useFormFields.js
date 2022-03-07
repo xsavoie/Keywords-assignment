@@ -11,7 +11,7 @@ export function useFormFields(initialState) {
     });
   }
 
-  function resetForm() {
+  function resetFields() {
     setValues(initialState);
   }
 
@@ -19,6 +19,6 @@ export function useFormFields(initialState) {
     fields,
     handleFieldChange,
     setValues,
-    resetForm,
+    resetFields,
   };
 }
