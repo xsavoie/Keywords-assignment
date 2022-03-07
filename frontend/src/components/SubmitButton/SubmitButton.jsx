@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { useFormValidate } from '../../hooks/useFormValidate';
+import { formValidate } from '../../lib/formValidateHelpers';
+import { useFormState } from '../../lib/formState';
 import './SubmitButton.css';
 
 export default function SubmitButton({
@@ -8,12 +9,14 @@ export default function SubmitButton({
   setDateValue,
   setError,
 }) {
-  const { validateAll } = useFormValidate({ setError });
+  const { validateAll } = formValidate({ setError });
+  const { setConfirmMessage, handleModeChange } = useFormState();
 
   function resetForm() {
     resetFields();
     setDateValue('');
     setError(null);
+    handleModeChange();
   }
 
   function handleSubmit(event) {
@@ -25,6 +28,7 @@ export default function SubmitButton({
         .post('/appointment/new', { fields })
         .then((response) => {
           console.log(response.data);
+          setConfirmMessage(response.data)
           resetForm();
         })
         .catch((err) => {

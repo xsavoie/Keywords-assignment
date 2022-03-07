@@ -20,7 +20,7 @@ appointment.post('/new', (req, res) => {
         console.log(err);
       } else {
         console.log('inserted in db')
-        res.send(`Thank you, ${fullName}, an appointment was created for ${date} at ${time}`);
+        res.send(`Thank you, an appointment was created for ${fullName} on ${date} at ${time}`);
       }
     }
   );

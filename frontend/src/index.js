@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { FormStateProvider } from './lib/formState';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FormStateProvider>
+      <App />
+    </FormStateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
