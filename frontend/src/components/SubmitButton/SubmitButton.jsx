@@ -27,7 +27,7 @@ export default function SubmitButton({
       return axios
         .post('/appointment/new', { fields })
         .then((response) => {
-          setConfirmMessage(response.data)
+          setConfirmMessage(response.data);
           resetForm();
         })
         .catch((err) => {
