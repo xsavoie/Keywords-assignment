@@ -11,10 +11,7 @@ function FormStateProvider({ children }) {
   const [confirmMessage, setConfirmMessage] = useState('');
 
   const handleModeChange = () => {
-    if (mode === FORM) {
-      return setMode(CONFIRM);
-    }
-    return setMode(FORM);
+    mode === FORM ? setMode(CONFIRM) : setMode(FORM);
   };
 
   return (

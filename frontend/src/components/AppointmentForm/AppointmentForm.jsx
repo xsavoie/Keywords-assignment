@@ -32,6 +32,9 @@ export default function AppointmentForm() {
 
   return (
     <div className="appointment-container">
+      <header className="header">
+        <h3>Book an Appointment</h3>
+      </header>
       <form>
         <div className="user-info">
           <label>

@@ -21,14 +21,13 @@ export default function SubmitButton({
 
   function handleSubmit(event) {
     event.preventDefault();
-    let validated = validateAll(fields);
+    const validated = validateAll(fields);
 
     if (validated) {
       return axios
         .post('/appointment/new', { fields })
         .then((response) => {
-          console.log(response.data);
-          setConfirmMessage(response.data)
+          setConfirmMessage(response.data);
           resetForm();
         })
         .catch((err) => {
